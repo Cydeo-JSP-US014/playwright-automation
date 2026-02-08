@@ -24,3 +24,9 @@ Setup playwright:
 
 To install Missing dependencies:
     npm install
+
+During the break pelase install:
+    Google chrome
+    Micorsoft Edge
+
+come back at 11:50
