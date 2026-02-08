@@ -21,3 +21,6 @@ Week02 Review:
 
 Setup playwright:
     npm init playwright@latest
+
+To install Missing dependencies:
+    npm install
