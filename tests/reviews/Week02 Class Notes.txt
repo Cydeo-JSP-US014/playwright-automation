@@ -17,3 +17,7 @@ Week02 Review:
             Mobile browser configurations
 
         SEP Project
+
+
+Setup playwright:
+    npm init playwright@latest
