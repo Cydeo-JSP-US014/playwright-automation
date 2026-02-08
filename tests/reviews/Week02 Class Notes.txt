@@ -3,7 +3,7 @@ Week02 Review:
     Topics:
         Playwright Fundamentals 
             Test Function
-            page fxitur
+            page fixture
             Hooks
 
         Global Configurations
