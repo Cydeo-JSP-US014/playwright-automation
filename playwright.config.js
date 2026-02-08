@@ -50,14 +50,6 @@ export default defineConfig({
        },
     },
 
-  {
-      name: 'chromium',
-      use: { 
-        ...devices['Desktop Chrome'],
-        viewport: {width: 1900, height: 1080} 
-       },
-    },
-
     {
       name: 'firefox',
       use: { 
@@ -72,6 +64,24 @@ export default defineConfig({
         ...devices['Desktop Safari'],
         viewport: {width: 1850, height: 1000}  
       },
+    },
+
+     {
+      name: 'Google Chrome',
+      use: { 
+        ...devices['Desktop Chrome'],
+        channel: 'chrome',
+        viewport: {width: 1900, height: 1080} 
+       },
+    },
+
+    {
+      name: 'Microsoft Edge',
+      use: { 
+        ...devices['Desktop Edge'],
+        channel: 'msedge',
+        viewport: {width: 1900, height: 1080} 
+       },
     },
 */
 
