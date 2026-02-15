@@ -3,8 +3,8 @@ import { faker } from "@faker-js/faker";
 export class CommonUI {
 
     static async login(page){
+        
         const encoded_credential = Buffer.from(`${process.env.SEP_USERNAME}:${process.env.SEP_PASSWORD}`).toString("base64");
-
         await page.setExtraHTTPHeaders( {'Authorization': `Basic ${encoded_credential}`} );
 
         await page.goto(`${process.env.SEP_QA_URL}`);
@@ -29,6 +29,14 @@ export class CommonUI {
 
         let nextBttnStartAppPage = page.locator("//button[@type='submit']");
         await nextBttnStartAppPage.click();
+    }
+
+    static async completePaymentPlanStep(page){
+        let upfrontPaymentPlan = page.locator("//mat-expansion-panel//span[@class='payment-type' and normalize-space()='Upfront']");
+        await upfrontPaymentPlan.click();
+
+        let activeNextButton = page.locator("//button[@class='next-button' and text()='Next']");
+        await activeNextButton.click();
     }
 
 }
