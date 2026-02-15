@@ -2,6 +2,7 @@
   "name": "playwright-automation",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "tests:headless": "npx playwright test",
     "tests:headed": "npx playwright test --headed",
@@ -17,6 +18,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@faker-js/faker": "^10.3.0",
     "@playwright/test": "^1.57.0",
     "@types/node": "^25.0.2",
     "allure-commandline": "^2.36.0",

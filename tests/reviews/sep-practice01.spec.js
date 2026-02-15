@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { CommonUI } from "./CommonUI";
+import { faker } from "@faker-js/faker";  // require()
 
 test.describe("Start Application Page @sep01", () => {
 
@@ -38,6 +39,13 @@ test.describe("Start Application Page @sep01", () => {
 
     await expect(step1StepperCircle).toBeVisible();
     await expect(step1StepperCircle).toHaveCSS("background-color", "rgb(1, 201, 255)");
+
+    let firstNameBox = page.locator("//input[@formcontrolname='firstName']");
+    let lastNameInputBox = page.locator("//input[@formcontrolname='lastName']");
+    let emailInputBox = page.locator("//mat-label[normalize-space()='Email Address']");
+    let phoneNumberInputBox = page.locator('mat-label', { hasText: 'Phone' }); 
+    const hearAboutUsDropDown = page.locator("//mat-label[normalize-space(text())='How did you hear about us?']");
+
 
 
   });
