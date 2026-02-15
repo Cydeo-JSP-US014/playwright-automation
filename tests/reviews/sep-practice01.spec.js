@@ -1,27 +1,43 @@
 import { test, expect } from "@playwright/test";
+import { CommonUI } from "./CommonUI";
 
 test.describe("Start Application Page @sep01", () => {
 
   test.beforeEach(async ({ page }) => {
-    
-    const encoded_credential = Buffer.from(`${process.env.SEP_USERNAME}:${process.env.SEP_PASSWORD}`).toString("base64");
-
-    await page.setExtraHTTPHeaders( {'Authorization': `Basic ${encoded_credential}`} );
-
-    await page.goto(`${process.env.SEP_QA_URL}`);
-
+    await CommonUI.login(page);
   });
 
   test("Verify that clicking the Terms & Conditions link opens a new Terms & Conditions tab", async ({
     page,
   }) => {
 
+    let windowPopupEvent = page.waitForEvent("popup");
+
+    let termsAndConditionsLink = page.getByText("Terms and conditions");
+
+    await expect(termsAndConditionsLink).toBeVisible();
+    await expect(termsAndConditionsLink).toBeEnabled();
+
+    await termsAndConditionsLink.click();
+
+    let newPage = await windowPopupEvent;
+
+    let termsAndConidtionHeader = newPage.locator("//bdt[@class='question']/strong[text()='TERMS AND CONDITIONS']");
+
+    await expect(termsAndConidtionHeader).toBeVisible();
 
   });
+
 
   test("Verify that the first stepper is blue initially and changes to green once Step 1 is completed.", async ({
     page,
   }) => {
+
+    
+    let step1StepperCircle = page.locator("//div[@class='step-circle']").first();
+
+    await expect(step1StepperCircle).toBeVisible();
+    await expect(step1StepperCircle).toHaveCSS("background-color", "rgb(1, 201, 255)");
 
 
   });

@@ -6,6 +6,8 @@ export class CommonUI {
         await page.setExtraHTTPHeaders( {'Authorization': `Basic ${encoded_credential}`} );
 
         await page.goto(`${process.env.SEP_QA_URL}`);
+        await page.waitForLoadState("networkidle");
+       
     }
 
 }
