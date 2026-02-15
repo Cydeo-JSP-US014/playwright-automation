@@ -1,0 +1,11 @@
+Week03
+
+Topics:
+    Playwright Review
+    dotenv
+    Gherkin: Scenario, Feature, Background, When, Given, And, Then.
+
+    Extra Perplexity Spaces
+
+
+Class starts at 10:05 AM EST
