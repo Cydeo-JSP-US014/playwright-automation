@@ -55,9 +55,24 @@ test.describe("Start Application Page @sep01", () => {
     let emailInputBox = page.locator("//mat-label[normalize-space()='Email Address']");
     let phoneNumberInputBox = page.locator("//input[@formcontrolname='phoneNumber']");
 
+    let firstName = faker.person.firstName(); 
+    await firstNameInputBox.fill(firstName);
+    await expect(firstNameInputBox).toHaveValue(firstName);
+
+    let lastName = faker.person.lastName(); 
+    await lastNameInputBox.fill(lastName);
+    await expect(lastNameInputBox).toHaveValue(lastName);
+
+    let email = faker.internet.email();
+    await emailInputBox.fill(email);
+    await expect(emailInputBox).toHaveValue(email);
+
+    let phoneNumber = faker.string.numeric(10);
+    await phoneNumberInputBox.fill(phoneNumber);
+    await expect(phoneNumberInputBox).toHaveValue(phoneNumber);
+
 
   });
 
-// come back at 12:40 PM 
 
 });
